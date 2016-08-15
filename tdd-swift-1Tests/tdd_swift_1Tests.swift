@@ -12,10 +12,12 @@ import XCTest
 //@testable makes internal elements of the module accessible to the test case
 
 class tdd_swift_1Tests: XCTestCase {
+    var viewController: ViewController!
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        viewController = ViewController()
     }
     
     override func tearDown() {
@@ -24,13 +26,31 @@ class tdd_swift_1Tests: XCTestCase {
     }
     
     func testNumberOfVowelsInString_ShouldReturnNumberOfVowels() {
-        let viewController = ViewController()
-        
         let string = "Jonny"
         
         let numberOfVowels = viewController.numberOfVowelsInString(string)
         
         XCTAssertEqual(numberOfVowels, 1, "should find 1 vowel in Jonny")
+    }
+    
+    func testMakeHeadline_ReturnsStringWithEachWordStartCapital() {
+        let inputString =       "this is A test headline"
+        
+        let expectedHeadline =  "This Is A Test Headline"
+            
+        let result =            viewController.makeHeadline(inputString)
+        
+        XCTAssertEqual(result, expectedHeadline)
+    }
+    
+    func testMakeHeadline_ReturnsStringWithEachWordStartCapital2() {
+        let inputString =       "Here is another Example"
+        
+        let expectedHeadline =  "Here Is Another Example"
+            
+        let result =            viewController.makeHeadline(inputString)
+        
+        XCTAssertEqual(result, expectedHeadline)
     }
     
 }
