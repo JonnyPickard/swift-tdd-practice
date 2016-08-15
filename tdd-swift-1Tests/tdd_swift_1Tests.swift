@@ -7,7 +7,8 @@
 //
 
 import XCTest
-@testable import tdd_swift_1 //Imports everthing in the tdd_swift_1 module (the main app)
+@testable import tdd_swift_1
+//Imports everthing in the tdd_swift_1 module (the main app)
 //@testable makes internal elements of the module accessible to the test case
 
 class tdd_swift_1Tests: XCTestCase {
@@ -22,16 +23,14 @@ class tdd_swift_1Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testNumberOfVowelsInString_ShouldReturnNumberOfVowels() {
+        let viewController = ViewController()
+        
+        let string = "Jonny"
+        
+        let numberOfVowels = viewController.numberOfVowelsInString(string)
+        
+        XCTAssertEqual(numberOfVowels, 1, "should find 1 vowel in Jonny")
     }
     
 }
